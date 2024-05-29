@@ -12,7 +12,8 @@ CREATE TABLE IF NOT EXISTS user_info (
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   city VARCHAR(255) NOT NULL,
-  phone VARCHAR(255) NOT NULL
+  phone VARCHAR(255) NOT NULL,
+  allowed BOOL NOT NULL
 );
 `;
 
@@ -27,7 +28,7 @@ CREATE TABLE IF NOT EXISTS reserved_ads (
 
 const  user_messages= `
 CREATE TABLE IF NOT EXISTS  user_messages(
-  product_id INT  PRIMARY KEY AUTO_INCREMENT,
+  messages_id INT  PRIMARY KEY AUTO_INCREMENT,
   user_id INT NOT NULL,
   sender_id INT  NOT NULL ,
   body longtext NOT NULL
