@@ -30,9 +30,9 @@ server.use('/furniture', furnitureRouter);
 server.use('/appliances', appliancesRouter);
 server.use('/animals', animalsRouter);
 server.use('/businesses', businessesRouter);
-server.use('/users', usersRouter);
-server.use('/userMessages', userMessagesRouter);
-server.use('/reservedAds', reservedAdsRouter);
+server.use('/user', usersRouter);
+server.use('/user/:id/Messages', userMessagesRouter);
+server.use('/user/:id/reservedAds', reservedAdsRouter);
 
 
 
