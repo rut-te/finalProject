@@ -5,12 +5,12 @@ router.get('', (req, res) => {
 
     dal.getAll('', details)
         .then((results) => {
-            console.log(`COMMENT with id ${id} retrieved:`, results);
+            console.log(`CAR with id ${id} retrieved:`, results);
             res.status(200).json(results);
         })
         .catch((err) => {
-            console.error(`Error retrieving comment with id ${id}:`, err);
-            res.status(404).json({ error: `An error occurred while retrieving comment with id ${id}` });
+            console.error(`Error retrieving car with id ${id}:`, err);
+            res.status(404).json({ error: `An error occurred while retrieving car with id ${id}` });
         });
 });
 
@@ -22,14 +22,14 @@ router.put('/:postId/:commentId', (req, res) => {
         commentId: commentId,
         postId: postId
     }
-    dal.update('updateComment', details)
+    dal.update('updateCar', details)
         .then((result) => {
-            console.log(`Comment with ID ${commentId} updated successfully`);
+            console.log(`car with ID ${commentId} updated successfully`);
             res.status(200).send(result);
         })
         .catch((err) => {
-            console.error('Error updating comment:', err);
-            res.status(500).json({ error: 'An error occurred while updating the comment' });
+            console.error('Error updating car:', err);
+            res.status(500).json({ error: 'An error occurred while updating the car' });
         });
 });
 
@@ -37,23 +37,23 @@ router.post('/', (req, res) => {
     const details = {
         commentDetails: req.body,
     }
-    dal.create('addComment', details)
+    dal.create("addCar", details)
         .then((result) => {
-            console.log("new comment created successfully");
+            console.log("new car created successfully");
         })
         .catch((err) => {
-            console.error('Error creating new comment:', err);
-            res.status(500).json({ error: 'An error occurred while creating a new comment' });
+            console.error('Error creating new car:', err);
+            res.status(500).json({ error: 'An error occurred while creating a new car' });
         });
 
-    dal.get('getTodoId', details)
+    dal.get('getCar', details)
         .then((result) => {
-            console.log("new comment created successfully");
+            console.log("new car created successfully");
             res.status(200).send(result[0])
         })
         .catch((err) => {
-            console.error('Error creating new Todo:', err);
-            res.status(500).json({ error: 'An error occurred while creating a new Todo' });
+            console.error('Error creating new car:', err);
+            res.status(500).json({ error: 'An error occurred while creating a new car' });
         });
 })
 
@@ -65,7 +65,7 @@ router.delete('/:postId/:commentId', (req, res) => {
         postId: postId,
         commentId: commentId
     }
-    dal.delete_('deleteComment', details)
+    dal.delete_('deleteCar', details)
         .then((result) => {
             res.status(200).send(result);
         })
